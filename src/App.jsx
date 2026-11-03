@@ -71,5 +71,3 @@ export default function App() {
 
       <footer>MEDIA PRO © 2026</footer>
     </main>
-  );
-  }
