@@ -52,7 +52,6 @@ body {
 .welcome h1 {
   font-size: 36px;
   margin: 8px 0;
-  color: #ffffff;
 }
 
 .welcome p {
@@ -72,7 +71,6 @@ body {
 .login h2 {
   text-align: center;
   margin: 0 0 25px;
-  font-size: 21px;
 }
 
 .login input {
@@ -84,7 +82,6 @@ body {
   background: #091a2e;
   color: white;
   font-size: 14px;
-  outline: none;
 }
 
 .login input::placeholder {
@@ -101,6 +98,10 @@ body {
   font-size: 17px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.login button:disabled {
+  opacity: 0.6;
 }
 
 footer {
