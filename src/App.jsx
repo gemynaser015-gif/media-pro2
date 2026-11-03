@@ -13,19 +13,23 @@ export default function App() {
     setError("");
     setLoading(true);
 
-    const { error } = await supabase.auth.signInWithPassword({
-      email: email.trim(),
-      password,
-    });
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
 
-    setLoading(false);
+      if (error) {
+        setError("بيانات الدخول غير صحيحة أو الحساب غير مفعّل.");
+        return;
+      }
 
-    if (error) {
-      setError("بيانات الدخول غير صحيحة أو الحساب غير مفعّل.");
-      return;
+      window.location.reload();
+    } catch (err) {
+      setError("حصلت مشكلة في الاتصال. حاول مرة تانية.");
+    } finally {
+      setLoading(false);
     }
-
-    window.location.reload();
   }
 
   return (
@@ -71,3 +75,5 @@ export default function App() {
 
       <footer>MEDIA PRO © 2026</footer>
     </main>
+  );
+}
